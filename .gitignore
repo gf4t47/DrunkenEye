@@ -214,6 +214,16 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
 #############
 ## IntelliJ
 #############
