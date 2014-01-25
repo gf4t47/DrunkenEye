@@ -3,20 +3,21 @@ package org.opencv.samples.tutorial1;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	
-	//private Button mMainButton;
-	private String result = "NA";
 
+    private String strButton = "Start";
+    private String strResult;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		//mMainButton = (Button)findViewById(R.id.start);
-		//mMainButton.setText("Start!");
+
+        ((TextView)findViewById(R.id.start)).setText(strButton);
 	}
 
 	/**
@@ -27,9 +28,8 @@ public class MainActivity extends Activity {
 	}
     **/
 	
-	public void startTest() {
+	public void startTest(View view) {
 		Intent intent = new Intent(this, TestActivity.class);
-		
 		startActivityForResult(intent, 9527);
 	}
 	
@@ -37,38 +37,31 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume() {
 	    super.onResume();  // Always call the superclass method first
-	    
-	    //Intent intent = null;
-	    //intent = getIntent();
-	    //if (intent != null) {
-	    //	result = intent.getStringExtra(TestActivity.KEY_RESPONSE);
-	    //}
-
-	    // Once the activity is resumed, it will get result from Test Activity
-	    // It will also display result and change the button to "RE DO?"
-	    //if (!result.equals("NA")) {
-	    //	mMainButton.setText("RE DO?");
-	    //}
 	}
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        boolean result = false;
 
         switch (requestCode) {
             case 9527:
                 if (resultCode == Activity.RESULT_OK) {
-                    result = data.getStringExtra(TestActivity.KEY_RESPONSE);
+                    //result = data.getStringExtra(TestActivity.KEY_RESPONSE);
+                    result = data.getBooleanExtra(TestActivity.KEY_RESPONSE, false);
                 }
                 break;
         }
 
-        //Log.d("Xing", result);
-
-
-        assert result != null;
-        if (!result.equals("NA")) {
-            ((TextView)findViewById(R.id.start)).setText("RE DO?");
+        if (result) {
+            strResult = "You are drunk!";
 	    }
+        else {
+            strResult = "You are Clear!";
+        }
+        ((TextView)findViewById(R.id.drunk)).setText(strResult);
+
+        strButton = "RE DO?";
+        ((TextView)findViewById(R.id.start)).setText(strButton);
 	}
 
 }

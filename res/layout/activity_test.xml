@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:opencv="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
+             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:id="@+id/mainFrame">
+             android:id="@+id/mainFrame" tools:context=".TestActivity">
 
     <org.opencv.android.JavaCameraView
             android:layout_width="fill_parent"

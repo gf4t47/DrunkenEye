@@ -1,23 +1,25 @@
 package org.opencv.samples.tutorial1;
 
-import android.content.Intent;
-import android.os.CountDownTimer;
-import android.widget.*;
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
-import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Mat;
-import org.opencv.android.CameraBridgeViewBase;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
 
 public class TestActivity extends Activity implements CvCameraViewListener2 {
     private static final String TAG = "OCVSample::Activity";
@@ -28,8 +30,10 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     private MenuItem             mItemSwitchCamera = null;
 
     private TextView mCountDown;
+    private final int CountDownTime = 3000;
+    private final int CountDownTick = 1000;
 
-    private String result = "NA";
+    private Mat preInput;
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -50,7 +54,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     };
 
     public TestActivity() {
-        //Log.i(TAG, "Instantiated new " + this.getClass());
+        //Log.i(TAG, ("Instantiated new " + this.getClass()));
     }
 
     /** Called when the activity is first created. */
@@ -72,34 +76,34 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         mOpenCvCameraView.setCvCameraViewListener(this);
 
         mCountDown = (TextView) findViewById(R.id.countDown);
+        new myCountDown(CountDownTime, CountDownTick, this).start();
+    }
 
-        new CountDownTimer(3000, 1000) {
+    public void onTimerTick(long millisUntilFinished)  {
+        mCountDown.setText("" + millisUntilFinished / CountDownTick);
+    }
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                mCountDown.setText("" + millisUntilFinished / 1000);
-            }
+    private void noticeFinish(boolean ret) {
+        Intent intent = new Intent();
 
-            @Override
-            public void onFinish() {
-                mCountDown.setText("OK");
+        intent.putExtra(KEY_RESPONSE, ret);
 
-                result = "PASS";
+        if (getParent() == null) {
+            setResult(Activity.RESULT_OK, intent);
+        } else {
+            getParent().setResult(Activity.RESULT_OK, intent);
+        }
+        finish();
+    }
 
-                Intent intent = new Intent();
-                intent.putExtra(KEY_RESPONSE, result);
+    private boolean getAnalyseResult() {
+        return true;
+    }
 
-                if (getParent() == null) {
-                    setResult(Activity.RESULT_OK, intent);
-                } else {
-                    getParent().setResult(Activity.RESULT_OK, intent);
-                }
-                finish();
-            }
+    public void onTimerFinish() {
+        mCountDown.setText("OK");
 
-        }.start();
-
-
+        noticeFinish(getAnalyseResult());
     }
 
     @Override
@@ -164,6 +168,24 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        return inputFrame.rgba();
+
+        Mat output ;//= inputFrame.rgba();
+        //Core.line(output, new Point(0, 0), new Point(100, 50), new Scalar(0, 255, 0), 3);
+        //Mat gray = new Mat();
+        //Imgproc.cvtColor(inputFrame.rgba(), gray, Imgproc.COLOR_RGB2GRAY);
+        if(preInput != null)
+        {
+            Mat currentMat = inputFrame.rgba();
+            Algorithm runAl = new Algorithm(currentMat, preInput);
+            runAl.detection();
+            output = runAl.outputFrame;
+        }else
+        {
+            preInput = inputFrame.rgba();
+            output = inputFrame.rgba();
+            Core.line(output, new Point(0, 0), new Point(100, 50), new Scalar(0, 255, 0), 3);
+        }
+
+        return output;
     }
 }
