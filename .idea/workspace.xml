@@ -10,7 +10,14 @@
       <config />
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/res/layout/surface_view.xml">
+      <layout url="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+        <config>
+          <device>Nexus 4</device>
+          <state>Landscape</state>
+          <theme>@android:style/Theme.NoTitleBar.Fullscreen</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/activity_test.xml">
         <config>
           <device>Nexus 4</device>
           <state>Landscape</state>
@@ -19,9 +26,17 @@
       </layout>
     </layouts>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Xing" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1260f65-e9a2-47c3-9d6e-b0cf55173008" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="a1260f65-e9a2-47c3-9d6e-b0cf55173008" name="Default" comment="UI Merge Done&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
+      <change type="MOVED" beforePath="C:\Users\Ding\SkyDrive\Program\HackPoly\res\layout\surface_view.xml" afterPath="$PROJECT_DIR$/res/layout/activity_test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java" afterPath="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HackPoly.iws" />
@@ -77,6 +92,98 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="59" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="60" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="61" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="64" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="30" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" line="69" class="org.opencv.samples.tutorial1.MainActivity" package="org.opencv.samples.tutorial1">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -89,7 +196,7 @@
       <file leaf-file-name="TestActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="69" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="2940">
+            <state line="45" column="61" selection-start="1640" selection-end="1640" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="3160">
               <folding />
             </state>
           </provider>
@@ -98,16 +205,78 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="23" selection-start="5712" selection-end="5712" vertical-scroll-proportion="0.0" vertical-offset="2180" max-vertical-offset="16620">
+            <state line="302" column="19" selection-start="16326" selection-end="16326" vertical-scroll-proportion="0.0" vertical-offset="5920" max-vertical-offset="21020">
+              <folding>
+                <marker date="1390649844312" expanded="true" signature="52203:52266" placeholder="..." />
+                <marker date="1390649844312" expanded="true" signature="52203:52251" placeholder="..." />
+                <marker date="1390649844312" expanded="true" signature="52203:52238" placeholder="..." />
+                <marker date="1390649844312" expanded="true" signature="52203:52220" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state line="4" column="4" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="8" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.4549266" vertical-offset="1123" max-vertical-offset="1600">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_test.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_test.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="13" selection-start="85" selection-end="85" vertical-scroll-proportion="-0.8" vertical-offset="0" max-vertical-offset="980">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="46" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1120">
+              <folding>
+                <element signature="e#269#287#0" expanded="true" />
+                <element signature="e#489#507#0" expanded="true" />
+                <element signature="e#813#831#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="23" selection-start="172" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="13" selection-start="2704" selection-end="2704" vertical-scroll-proportion="0.8312236" vertical-offset="4006" max-vertical-offset="4560">
+            <state line="215" column="0" selection-start="2643" selection-end="2643" vertical-scroll-proportion="0.0" vertical-offset="4006" max-vertical-offset="4560">
               <folding />
             </state>
           </provider>
@@ -127,19 +296,22 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/Tutorial1Activity.java" />
-        <option value="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/tutorial1_surface_view.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_test.xml" />
+        <option value="$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-4" />
     <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -150,7 +322,7 @@
     <OptionsSetting value="true" id="Edit" />
     <OptionsSetting value="true" id="Undo Check Out" />
     <OptionsSetting value="true" id="Get Latest Version" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -315,6 +487,14 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.opencv.samples.tutorial1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ding\SkyDrive\Program\HackPoly\res\layout" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.HackPoly">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
@@ -580,7 +760,7 @@
       <changelist id="a1260f65-e9a2-47c3-9d6e-b0cf55173008" name="Default" comment="" />
       <created>1390644826836</created>
       <updated>1390644826836</updated>
-      <workItem from="1390644829405" duration="1124000" />
+      <workItem from="1390644829405" duration="5020000" />
     </task>
     <task id="LOCAL-00001" summary="Init Cfg">
       <created>1390645652137</created>
@@ -602,15 +782,19 @@
       <created>1390645890274</created>
       <updated>1390645890274</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Test Cfg&#10;">
+      <created>1390645964399</created>
+      <updated>1390645964399</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1124000" />
+    <option name="totallyTimeSpent" value="5020000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
-    <editor active="true" />
+    <frame x="-4" y="0" width="1616" height="860" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -624,16 +808,16 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24967907" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32841823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991013" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24390244" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34166667" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3994638" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297587" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297587" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843792" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33244327" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -658,7 +842,8 @@
     <MESSAGE value="Init Cfg" />
     <MESSAGE value="Test Cfg" />
     <MESSAGE value="Test Cfg&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Cfg&#10;" />
+    <MESSAGE value="UI Merge Done&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Merge Done&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -682,26 +867,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/surface_view.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="30" selection-start="1388" selection-end="1388" vertical-scroll-proportion="-5.8" vertical-offset="435" max-vertical-offset="1000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gen/org/opencv/samples/tutorial1/R.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="19" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="220">
           <folding />
         </state>
       </provider>
@@ -713,24 +881,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="69" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="2940">
+        <state line="215" column="0" selection-start="2643" selection-end="2643" vertical-scroll-proportion="0.0" vertical-offset="4006" max-vertical-offset="4560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="46" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1120">
+          <folding>
+            <element signature="e#269#287#0" expanded="true" />
+            <element signature="e#489#507#0" expanded="true" />
+            <element signature="e#813#831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="23" selection-start="172" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="23" selection-start="5712" selection-end="5712" vertical-scroll-proportion="0.0" vertical-offset="2180" max-vertical-offset="16620">
+        <state line="302" column="19" selection-start="16326" selection-end="16326" vertical-scroll-proportion="0.0" vertical-offset="5920" max-vertical-offset="21020">
+          <folding>
+            <marker date="1390649844312" expanded="true" signature="52203:52266" placeholder="..." />
+            <marker date="1390649844312" expanded="true" signature="52203:52251" placeholder="..." />
+            <marker date="1390649844312" expanded="true" signature="52203:52238" placeholder="..." />
+            <marker date="1390649844312" expanded="true" signature="52203:52220" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/TestActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="61" selection-start="1640" selection-end="1640" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="3160">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="13" selection-start="2704" selection-end="2704" vertical-scroll-proportion="0.8312236" vertical-offset="4006" max-vertical-offset="4560">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="4" column="4" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_test.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="13" selection-start="85" selection-end="85" vertical-scroll-proportion="-0.8" vertical-offset="0" max-vertical-offset="980">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/opencv/samples/tutorial1/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="8" selection-start="1728" selection-end="1728" vertical-scroll-proportion="0.4549266" vertical-offset="1123" max-vertical-offset="1600">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

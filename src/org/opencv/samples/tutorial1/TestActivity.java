@@ -1,5 +1,6 @@
 package org.opencv.samples.tutorial1;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.widget.*;
 import org.opencv.android.BaseLoaderCallback;
@@ -20,12 +21,15 @@ import android.view.WindowManager;
 
 public class TestActivity extends Activity implements CvCameraViewListener2 {
     private static final String TAG = "OCVSample::Activity";
+    public final static String KEY_RESPONSE = "org.opencv.samples.tutorial1.KEY_RESPONSE";
 
     private CameraBridgeViewBase mOpenCvCameraView;
     private boolean              mIsJavaCamera = true;
     private MenuItem             mItemSwitchCamera = null;
 
     private TextView mCountDown;
+
+    private String result = "NA";
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -56,7 +60,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        setContentView(R.layout.surface_view);
+        setContentView(R.layout.activity_test);
 
         if (mIsJavaCamera)
             mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
@@ -69,7 +73,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
         mCountDown = (TextView) findViewById(R.id.countDown);
 
-        new CountDownTimer(15000, 1000) {
+        new CountDownTimer(3000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -80,9 +84,17 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
             public void onFinish() {
                 mCountDown.setText("OK");
 
-                //result = "PASS";
+                result = "PASS";
 
-                //finish();
+                Intent intent = new Intent();
+                intent.putExtra(KEY_RESPONSE, result);
+
+                if (getParent() == null) {
+                    setResult(Activity.RESULT_OK, intent);
+                } else {
+                    getParent().setResult(Activity.RESULT_OK, intent);
+                }
+                finish();
             }
 
         }.start();
