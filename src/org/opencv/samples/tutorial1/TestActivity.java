@@ -26,14 +26,16 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     public final static String KEY_RESPONSE = "org.opencv.samples.tutorial1.KEY_RESPONSE";
 
     private CameraBridgeViewBase mOpenCvCameraView;
-    private boolean              mIsJavaCamera = true;
+    private boolean              mIsJavaCamera = false;
     private MenuItem             mItemSwitchCamera = null;
 
     private TextView mCountDown;
-    private final int CountDownTime = 3000;
+    private final int CountDownTime = 10000;
     private final int CountDownTick = 1000;
 
     private Mat preInput;
+    private Mat currentMat;
+    private Algorithm runAl;
 
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -70,6 +72,8 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
             mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
         else
             mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_native_surface_view);
+
+        mOpenCvCameraView.setCameraIndex(1);
 
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 
@@ -168,23 +172,19 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-
-        Mat output ;//= inputFrame.rgba();
-        //Core.line(output, new Point(0, 0), new Point(100, 50), new Scalar(0, 255, 0), 3);
-        //Mat gray = new Mat();
-        //Imgproc.cvtColor(inputFrame.rgba(), gray, Imgproc.COLOR_RGB2GRAY);
-        if(preInput != null)
-        {
-            Mat currentMat = inputFrame.rgba();
-            Algorithm runAl = new Algorithm(currentMat, preInput);
-            runAl.detection();
-            output = runAl.outputFrame;
-        }else
-        {
-            preInput = inputFrame.rgba();
-            output = inputFrame.rgba();
-            Core.line(output, new Point(0, 0), new Point(100, 50), new Scalar(0, 255, 0), 3);
-        }
+        Mat output = new Mat();
+        //if(preInput != null)
+        //{
+            currentMat = inputFrame.rgba();
+            runAl = new Algorithm(currentMat, preInput);
+            output = runAl.detection();
+            //preInput = runAl.outputFrame;
+            preInput = output;
+        //}else
+        //{
+        //    preInput = inputFrame.rgba();
+        //    output = preInput;
+        //}
 
         return output;
     }

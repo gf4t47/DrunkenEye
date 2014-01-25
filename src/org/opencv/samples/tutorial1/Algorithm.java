@@ -21,11 +21,12 @@ public class Algorithm {
     {
         currentFrame = inputFrame;
         lastFrame = inputLastFrame;
+        if (lastFrame == null)
+            lastFrame = inputFrame;
 
     }
 
-
-    public void detection()
+    public Mat detection()
     {
         //Mat video;
 //        MatOfPoint myPoint = new MatOfPoint();
@@ -40,7 +41,7 @@ public class Algorithm {
         {
             for(int j = 0; j < testSize ; j++)
             {
-                Point test = new Point(j*currentFrame.size().height/testSize, i*currentFrame.size().width/testSize);
+                Point test = new Point(i*currentFrame.size().width/testSize, j*currentFrame.size().height/testSize);
                 cornersList.add(test);
             }
         }
@@ -75,7 +76,7 @@ public class Algorithm {
 //
 //        Video.calcOpticalFlowPyrLK(lastFrame, currentFrame, );
 //        Video.calcOpticalFlowPyrLK(lastFrame, currentFrame, mMOP2fptsPrev, mMOP2fptsThis, mMOBStatus, mMOFerr);
-
+         return outputFrame;
 
     }
 

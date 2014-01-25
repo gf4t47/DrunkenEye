@@ -4,21 +4,6 @@
              android:layout_height="match_parent"
              android:id="@+id/mainFrame" tools:context=".TestActivity">
 
-    <org.opencv.android.JavaCameraView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:visibility="gone"
-            android:id="@+id/tutorial1_activity_java_surface_view"
-            opencv:show_fps="true"
-            opencv:camera_id="any" />
-
-    <org.opencv.android.NativeCameraView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:visibility="gone"
-            android:id="@+id/tutorial1_activity_native_surface_view"
-            opencv:show_fps="true"
-            opencv:camera_id="any" />
     <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:layout_gravity="center|bottom|left|right|top" android:background="#924fff">
@@ -39,5 +24,19 @@
                 android:autoText="true" android:background="#ff9d90" android:gravity="center_vertical|center_horizontal"
                 android:textSize="200dp" android:textColor="#000000"/>
     </FrameLayout>
+    <org.opencv.android.JavaCameraView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone"
+            android:id="@+id/tutorial1_activity_java_surface_view"
+            opencv:show_fps="true"
+            opencv:camera_id="any" />
+    <org.opencv.android.NativeCameraView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone"
+            android:id="@+id/tutorial1_activity_native_surface_view"
+            opencv:show_fps="true"
+            opencv:camera_id="any" />
 
 </FrameLayout>
