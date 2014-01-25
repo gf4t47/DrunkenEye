@@ -19,22 +19,19 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 
 public class TestActivity extends Activity implements CvCameraViewListener2 {
-    private static final String TAG = "OCVSample::Activity";
+    private static final String TAG = "HackPolyTest::Activity";
     public final static String KEY_RESPONSE = "org.opencv.samples.tutorial1.KEY_RESPONSE";
 
     private CameraBridgeViewBase mOpenCvCameraView;
-    private boolean              mIsJavaCamera = false;
+    private boolean              mIsJavaCamera = true;
     private MenuItem             mItemSwitchCamera = null;
 
     private TextView mCountDown;
-    private final int CountDownTime = 10000;
-    private final int CountDownTick = 1000;
+    private final int CountDownTime;
+    private final int CountDownTick;
 
-    private Mat preInput;
-    private Mat currentMat;
+    private Mat preInput = null;
     private Algorithm runAl;
-
-    public  double xValues;
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -54,7 +51,12 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     };
 
     public TestActivity() {
-        //Log.i(TAG, ("Instantiated new " + this.getClass()));
+        runAl = new Algorithm();
+
+        CountDownTime = 10000;
+        CountDownTick = 1000;
+
+        Log.i(TAG, ("Instantiated new " + ((Object)this).getClass()));
     }
 
     /** Called when the activity is first created. */
@@ -98,14 +100,9 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         finish();
     }
 
-    private boolean getAnalyseResult() {
-        return true;
-    }
-
     public void onTimerFinish() {
         mCountDown.setText("OK");
-
-        noticeFinish(getAnalyseResult());
+        noticeFinish(runAl.getAnalyseResult(CountDownTime / CountDownTick));
     }
 
     @Override
@@ -164,28 +161,24 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     }
 
     public void onCameraViewStarted(int width, int height) {
+        preInput = null;
+        runAl.clear();
+
     }
 
     public void onCameraViewStopped() {
+        preInput = null;
+        runAl.clear();
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        Mat output = new Mat();
-        //if(preInput != null)
-        //{
-            currentMat = inputFrame.rgba();
-            runAl = new Algorithm(currentMat, preInput);
-            output = runAl.detection();
-            xValues += runAl.xValue;
-            Log.i("aaa", String.valueOf(xValues));
-            //preInput = runAl.outputFrame;
-            //preInput = output.clone();
-            preInput = inputFrame.rgba();
-        //}else
-        //{
-        //    preInput = inputFrame.rgba();
-        //    output = preInput;
-        //}
+        Mat currentMat = inputFrame.rgba();
+
+        Mat output = runAl.detection(currentMat, preInput);
+
+        Log.i("xVariance", String.valueOf(runAl.xVariance));
+
+        preInput = currentMat;
 
         return output;
     }

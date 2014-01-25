@@ -4,7 +4,6 @@ package org.opencv.samples.tutorial1;
  * Created by MarkLai on 1/24/14.
  */
 
-import android.util.Log;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.Video;
@@ -14,22 +13,35 @@ import java.util.List;
 
 
 public class Algorithm {
-    public Mat currentFrame;
-    public Mat outputFrame;
-    public Mat lastFrame;
-    public double xValue;
-    public double yValue;
 
-    public Algorithm(Mat inputFrame, Mat inputLastFrame)
+    public double xVariance;
+    public double yVariance;
+
+    public Algorithm()
     {
-        currentFrame = inputFrame;
-        lastFrame = inputLastFrame;
-        if (lastFrame == null)
-            lastFrame = inputFrame;
+        clear();
     }
 
-    public Mat detection()
+    public void clear() {
+        xVariance = 0;
+        yVariance = 0;
+    }
+
+    public boolean getAnalyseResult(int interval) {
+        if (xVariance / interval> 3000) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public Mat detection(Mat currentFrame, Mat lastFrame)
     {
+        if (lastFrame == null) {
+            return currentFrame;
+        }
+
         //Mat video;
 //        MatOfPoint myPoint = new MatOfPoint();
 //        int iGFFTMax = 3;
@@ -72,7 +84,7 @@ public class Algorithm {
 
        // outputFrame = drawOptFlowMap(flow, currentFrame, 16, 1.5);
           // Core.line(currentFrame, new Point(0,0), new Point(100,50), new Scalar(0,255,0), 3);
-        outputFrame = drawLine(currentFrame, prevPtsNew, nextPtsNew, status);
+        Mat outputFrame = drawLine(currentFrame, prevPtsNew, nextPtsNew, status);
         //outputFrame = currentFrame - lastFrame;
         //System.out.print(outputFrame.toString());
 //        Imgproc.goodFeaturesToTrack(currentFrame, myPoint,iGFFTMax, 0.01, 20 );
@@ -85,14 +97,10 @@ public class Algorithm {
 
     Mat drawLine(Mat result, MatOfPoint2f corners, MatOfPoint2f points, MatOfByte status)
     {
-        Mat tmp = new Mat();
-        tmp = result.clone();
-        List<Point> cornersList= new ArrayList<Point>();
-        cornersList = corners.toList();
-        List<Point> pointsList= new ArrayList<Point>();
-        pointsList = points.toList();
-        List<Byte> statusList= new ArrayList<Byte>();
-        statusList = status.toList();
+        Mat tmp = result.clone();
+        List<Point> cornersList  = corners.toList();
+        List<Point> pointsList = points.toList();
+        List<Byte> statusList = status.toList();
 
         for (int i = 0; i < pointsList.size(); i++)
         {
@@ -106,8 +114,8 @@ public class Algorithm {
                 p2.y = (int) cornersList.get(i).y;
 
                 Core.line(tmp, p2, p1, new Scalar(255, 0, 0, 255), 7);
-                xValue += Math.abs(p1.x - p2.x);
-                yValue += Math.abs(p1.y - p2.y);
+                xVariance += Math.abs(p1.x - p2.x);
+                yVariance += Math.abs(p1.y - p2.y);
             }
 
         }
