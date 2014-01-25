@@ -4,6 +4,7 @@ package org.opencv.samples.tutorial1;
  * Created by MarkLai on 1/24/14.
  */
 
+import android.util.Log;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.Video;
@@ -16,6 +17,8 @@ public class Algorithm {
     public Mat currentFrame;
     public Mat outputFrame;
     public Mat lastFrame;
+    public double xValue;
+    public double yValue;
 
     public Algorithm(Mat inputFrame, Mat inputLastFrame)
     {
@@ -23,7 +26,6 @@ public class Algorithm {
         lastFrame = inputLastFrame;
         if (lastFrame == null)
             lastFrame = inputFrame;
-
     }
 
     public Mat detection()
@@ -41,7 +43,8 @@ public class Algorithm {
         {
             for(int j = 0; j < testSize ; j++)
             {
-                Point test = new Point(i*currentFrame.size().width/testSize, j*currentFrame.size().height/testSize);
+//                Point test = new Point(i*currentFrame.size().width/testSize, j*currentFrame.size().height/testSize);
+                Point test = new Point(i*currentFrame.size().width/testSize, currentFrame.size().height/4+j*currentFrame.size().height/(2*testSize));
                 cornersList.add(test);
             }
         }
@@ -83,7 +86,7 @@ public class Algorithm {
     Mat drawLine(Mat result, MatOfPoint2f corners, MatOfPoint2f points, MatOfByte status)
     {
         Mat tmp = new Mat();
-        tmp = result;
+        tmp = result.clone();
         List<Point> cornersList= new ArrayList<Point>();
         cornersList = corners.toList();
         List<Point> pointsList= new ArrayList<Point>();
@@ -103,6 +106,8 @@ public class Algorithm {
                 p2.y = (int) cornersList.get(i).y;
 
                 Core.line(tmp, p2, p1, new Scalar(255, 0, 0, 255), 7);
+                xValue += Math.abs(p1.x - p2.x);
+                yValue += Math.abs(p1.y - p2.y);
             }
 
         }

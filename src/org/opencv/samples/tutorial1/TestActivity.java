@@ -16,10 +16,7 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
 
 public class TestActivity extends Activity implements CvCameraViewListener2 {
     private static final String TAG = "OCVSample::Activity";
@@ -37,6 +34,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     private Mat currentMat;
     private Algorithm runAl;
 
+    public  double xValues;
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -178,8 +176,11 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
             currentMat = inputFrame.rgba();
             runAl = new Algorithm(currentMat, preInput);
             output = runAl.detection();
+            xValues += runAl.xValue;
+            Log.i("aaa", String.valueOf(xValues));
             //preInput = runAl.outputFrame;
-            preInput = output;
+            //preInput = output.clone();
+            preInput = inputFrame.rgba();
         //}else
         //{
         //    preInput = inputFrame.rgba();
