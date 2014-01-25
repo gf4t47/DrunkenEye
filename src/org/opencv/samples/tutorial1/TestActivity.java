@@ -73,7 +73,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         else
             mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_native_surface_view);
 
-        mOpenCvCameraView.setCameraIndex(1);
+        mOpenCvCameraView.setCameraIndex(0);
 
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 

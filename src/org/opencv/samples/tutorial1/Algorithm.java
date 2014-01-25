@@ -4,6 +4,7 @@ package org.opencv.samples.tutorial1;
  * Created by MarkLai on 1/24/14.
  */
 
+import android.util.Log;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.Video;
@@ -45,9 +46,8 @@ public class Algorithm {
         //Mat video;
 //        MatOfPoint myPoint = new MatOfPoint();
 //        int iGFFTMax = 3;
-        int testSize = 10;
+        int testSize = 20;
         Mat gray = new Mat();
-        Mat flow = new Mat();
         Mat preGray = new Mat();
 
         List<Point> cornersList= new ArrayList<Point>();
@@ -56,7 +56,7 @@ public class Algorithm {
             for(int j = 0; j < testSize ; j++)
             {
 //                Point test = new Point(i*currentFrame.size().width/testSize, j*currentFrame.size().height/testSize);
-                Point test = new Point(i*currentFrame.size().width/testSize, currentFrame.size().height/4+j*currentFrame.size().height/(2*testSize));
+                Point test = new Point(i*currentFrame.size().width /(testSize * 2), currentFrame.size().height/4+j*currentFrame.size().height/(2*testSize));
                 cornersList.add(test);
             }
         }
@@ -101,6 +101,7 @@ public class Algorithm {
         List<Point> cornersList  = corners.toList();
         List<Point> pointsList = points.toList();
         List<Byte> statusList = status.toList();
+        int change = 0;
 
         for (int i = 0; i < pointsList.size(); i++)
         {
@@ -112,8 +113,13 @@ public class Algorithm {
                 p1.y = (int) pointsList.get(i).y;
                 p2.x = (int) cornersList.get(i).x;
                 p2.y = (int) cornersList.get(i).y;
-
-                Core.line(tmp, p2, p1, new Scalar(255, 0, 0, 255), 7);
+                change = Math.abs((int)(p1.x - p2.x))/5;
+                Log.i("ZZZZ", change + "");
+                if (change < 3)
+                    change = 0;
+                if (change > 10)
+                    change = 10;
+                Core.line(tmp, p2, p2, new Scalar(255, 0, 0, 255), 3+change);
                 xVariance += Math.abs(p1.x - p2.x);
                 yVariance += Math.abs(p1.y - p2.y);
             }
