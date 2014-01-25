@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
     private String strButton = "Start";
-    private String strResult;
-	
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -51,13 +51,18 @@ public class MainActivity extends Activity {
                 break;
         }
 
+        TextView drunk = (TextView)findViewById(R.id.drunk);
+        FrameLayout main =(FrameLayout)findViewById(R.id.mainLayout);
+        String strResult;
         if (result) {
             strResult = "You are drunk!";
+            main.setBackgroundColor(0xFFFF0000);   //red
 	    }
         else {
             strResult = "You are Clear!";
+            main.setBackgroundColor(0xff00ff00);   //green
         }
-        ((TextView)findViewById(R.id.drunk)).setText(strResult);
+        drunk.setText(strResult);
 
         strButton = "RE DO?";
         ((TextView)findViewById(R.id.start)).setText(strButton);

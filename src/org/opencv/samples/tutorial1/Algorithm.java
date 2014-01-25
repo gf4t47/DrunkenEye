@@ -15,8 +15,9 @@ import java.util.List;
 
 public class Algorithm {
 
-    public double xVariance;
-    public double yVariance;
+    private double xVariance;
+    private double yVariance;
+    public int variance;
 
     public Algorithm()
     {
@@ -24,14 +25,15 @@ public class Algorithm {
     }
 
     public void clear() {
+
+        variance = 0;
         xVariance = 0;
         yVariance = 0;
     }
 
     public boolean getAnalyseResult(int interval) {
-        if (xVariance / interval> 3000) {
-
-            return true;
+        if (variance / interval> 350) {
+             return true;
         }
 
         return false;
@@ -101,7 +103,6 @@ public class Algorithm {
         List<Point> cornersList  = corners.toList();
         List<Point> pointsList = points.toList();
         List<Byte> statusList = status.toList();
-        int change = 0;
 
         for (int i = 0; i < pointsList.size(); i++)
         {
@@ -113,13 +114,22 @@ public class Algorithm {
                 p1.y = (int) pointsList.get(i).y;
                 p2.x = (int) cornersList.get(i).x;
                 p2.y = (int) cornersList.get(i).y;
-                change = Math.abs((int)(p1.x - p2.x))/5;
+                int change = Math.abs((int)(p1.x - p2.x))/5;
+
                 Log.i("ZZZZ", change + "");
+
                 if (change < 3)
+                {
                     change = 0;
-                if (change > 10)
-                    change = 10;
-                Core.line(tmp, p2, p2, new Scalar(255, 0, 0, 255), 3+change);
+                }
+                else if (change > 10)
+                {
+                    change = 0;
+                }
+
+                variance += change;
+
+                Core.line(tmp, p2, p2, new Scalar(255, 0, 0, 255), 3+ change);
                 xVariance += Math.abs(p1.x - p2.x);
                 yVariance += Math.abs(p1.y - p2.y);
             }

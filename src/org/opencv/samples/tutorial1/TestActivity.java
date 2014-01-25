@@ -87,7 +87,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         mCountDown.setText("" + millisUntilFinished / CountDownTick);
     }
 
-    private void noticeFinish(boolean ret) {
+    private void notifyEnd(boolean ret) {
         Intent intent = new Intent();
 
         intent.putExtra(KEY_RESPONSE, ret);
@@ -102,7 +102,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
     public void onTimerFinish() {
         mCountDown.setText("OK");
-        noticeFinish(runAl.getAnalyseResult(CountDownTime / CountDownTick));
+        notifyEnd(runAl.getAnalyseResult(CountDownTime / CountDownTick));
     }
 
     @Override
@@ -176,7 +176,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
         Mat output = runAl.detection(currentMat, preInput);
 
-        Log.i("xVariance", String.valueOf(runAl.xVariance));
+        Log.i("xVariance", String.valueOf(runAl.variance));
 
         preInput = currentMat;
 
