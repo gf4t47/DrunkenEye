@@ -32,7 +32,10 @@ public class Algorithm {
     }
 
     public boolean getAnalyseResult(int interval) {
-        if (variance / interval> 350) {
+
+        Log.i("CountFrame",Integer.toString(variance));
+
+        if (variance > 50 * interval) {
              return true;
         }
 
@@ -116,7 +119,7 @@ public class Algorithm {
                 p2.y = (int) cornersList.get(i).y;
                 int change = Math.abs((int)(p1.x - p2.x))/5;
 
-                Log.i("ZZZZ", change + "");
+                //Log.i("ZZZZ", change + "");
 
                 if (change < 3)
                 {

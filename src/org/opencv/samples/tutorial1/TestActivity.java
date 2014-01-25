@@ -32,6 +32,8 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
     private Mat preInput = null;
     private Algorithm runAl;
+    private int CountFrame;
+    private final int AvoidFrame = 30;
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -53,8 +55,9 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
     public TestActivity() {
         runAl = new Algorithm();
 
-        CountDownTime = 10000;
+        CountDownTime = 15000;
         CountDownTick = 1000;
+        CountFrame = 0;
 
         Log.i(TAG, ("Instantiated new " + ((Object)this).getClass()));
     }
@@ -73,7 +76,7 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
         else
             mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_native_surface_view);
 
-        mOpenCvCameraView.setCameraIndex(1);
+        mOpenCvCameraView.setCameraIndex(0);
 
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
 
@@ -102,7 +105,8 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
     public void onTimerFinish() {
         mCountDown.setText("OK");
-        notifyEnd(runAl.getAnalyseResult(CountDownTime / CountDownTick));
+        Log.i("CountFrame",Integer.toString(CountFrame - AvoidFrame));
+        notifyEnd(runAl.getAnalyseResult(CountFrame - AvoidFrame));
     }
 
     @Override
@@ -162,24 +166,29 @@ public class TestActivity extends Activity implements CvCameraViewListener2 {
 
     public void onCameraViewStarted(int width, int height) {
         preInput = null;
+        CountFrame = 0;
         runAl.clear();
 
     }
 
     public void onCameraViewStopped() {
         preInput = null;
+        CountFrame = 0;
         runAl.clear();
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        Mat currentMat = inputFrame.rgba();
+        if(CountFrame++ > AvoidFrame) {
 
-        Mat output = runAl.detection(currentMat, preInput);
+            Mat currentMat = inputFrame.rgba();
+            Mat output = runAl.detection(currentMat, preInput);
+            Log.i("xVariance", String.valueOf(runAl.variance));
+            preInput = currentMat;
+            return output;
+        }
 
-        Log.i("xVariance", String.valueOf(runAl.variance));
+        preInput = inputFrame.rgba();
+        return preInput;
 
-        preInput = currentMat;
-
-        return output;
     }
 }
