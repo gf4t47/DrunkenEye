@@ -52,17 +52,21 @@ public class MainActivity extends Activity {
         }
 
         TextView drunk = (TextView)findViewById(R.id.drunk);
-        FrameLayout main =(FrameLayout)findViewById(R.id.mainLayout);
+        //FrameLayout main =(FrameLayout)findViewById(R.id.mainLayout);
         String strResult;
+        int iRed;
         if (result) {
             strResult = "You are drunk!";
-            main.setBackgroundColor(0xFFFF0000);   //red
+            iRed = 0xFFFF0000;
+            //main.setBackgroundColor(0xFFFF0000);   //red
 	    }
         else {
             strResult = "You are Clear!";
-            main.setBackgroundColor(0xff00ff00);   //green
+            iRed = 0xff00ff00;
+            //main.setBackgroundColor(0xff00ff00);   //green
         }
         drunk.setText(strResult);
+        drunk.setTextColor(iRed);
 
         strButton = "RE DO?";
         ((TextView)findViewById(R.id.start)).setText(strButton);
